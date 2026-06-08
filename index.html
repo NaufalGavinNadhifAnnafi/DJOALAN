@@ -1,3 +1,6 @@
+bash
+
+cat > /mnt/user-data/outputs/djoalan-marketplace-fixed.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -69,9 +72,9 @@
     .hero-text { padding: 60px 0; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(31,77,58,.08); border: 1px solid rgba(31,77,58,.14); border-radius: 40px; padding: 6px 14px 6px 10px; font-size: 12px; font-weight: 600; color: var(--green); letter-spacing: .05em; margin-bottom: 32px; }
     .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
-    .hero-title { font-size: clamp(44px, 5.5vw, 72px); font-weight: 800; line-height: 1.06; letter-spacing: -.03em; color: var(--green); margin-bottom: 8px; }
+    .hero-title { font-size: clamp(32px, 8vw, 72px); font-weight: 800; line-height: 1.06; letter-spacing: -.03em; color: var(--green); margin-bottom: 8px; }
     .hero-title em { font-style: normal; color: var(--orange); }
-    .hero-title-sub { font-size: clamp(44px, 5.5vw, 72px); font-weight: 300; line-height: 1.06; letter-spacing: -.03em; color: var(--ink-mid); margin-bottom: 32px; }
+    .hero-title-sub { font-size: clamp(32px, 8vw, 72px); font-weight: 300; line-height: 1.06; letter-spacing: -.03em; color: var(--ink-mid); margin-bottom: 32px; }
     .hero-desc { font-size: 17px; font-weight: 400; color: var(--ink-soft); line-height: 1.75; max-width: 440px; margin-bottom: 48px; }
     .hero-meta { display: flex; gap: 32px; padding-top: 32px; border-top: 1px solid rgba(31,77,58,.12); }
     .hero-meta-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px; }
@@ -153,6 +156,22 @@
     .figma-url-bar { flex: 1; height: 26px; background: var(--bone-mid); border-radius: 6px; margin-left: 8px; border: 1px solid rgba(31,77,58,.1); display: flex; align-items: center; padding: 0 12px; }
     .figma-url-text { font-size: 12px; color: var(--ink-muted); font-family: monospace; }
 
+    /* RESPONSIVE IFRAME WRAPPER */
+    .responsive-iframe {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      overflow: hidden;
+    }
+    .responsive-iframe iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     /* SHOWCASE */
       .showcase-grid { display: grid; gap: 24px; margin-top: 60px; }
       .showcase-grid.cols-2 { grid-template-columns: 1fr 1fr; }
@@ -173,7 +192,20 @@
     .prototype-header { background: var(--green); padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; }
     .prototype-title-text { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.85); letter-spacing: .04em; }
     .prototype-badge { background: rgba(255,255,255,.15); color: rgba(255,255,255,.8); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
-    .prototype-embed-area iframe { width: 100%; height: 620px; border: none; display: block; }
+    .prototype-embed-area {
+      position: relative;
+      width: 100%;
+      padding-top: 75%;
+    }
+    .prototype-embed-area iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
 
     /* TESTING — REDESIGNED */
     .testing-intro { font-size: 16px; color: var(--ink-soft); line-height: 1.8; max-width: 720px; margin-top: 12px; }
@@ -186,8 +218,8 @@
     .task-section { margin-top: 56px; }
     .task-section-title { font-size: 20px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
     .task-section-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 24px; }
-    .task-table-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(31,77,58,.1); box-shadow: var(--shadow-sm); }
-    .task-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .task-table-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(31,77,58,.1); box-shadow: var(--shadow-sm); overflow-x: auto; }
+    .task-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
     .task-table thead { background: var(--green); }
     .task-table thead th { color: rgba(255,255,255,.85); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 14px 20px; text-align: left; }
     .task-table tbody tr { border-bottom: 1px solid rgba(31,77,58,.07); background: var(--bone-light); transition: background .15s; }
@@ -208,7 +240,7 @@
     /* Feedback / Kesimpulan */
     .feedback-section { margin-top: 56px; }
     .feedback-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
-    .feedback-q-card { background: var(--bone-light); border: 1px solid rgba(31,77,58,.1); border-radius: var(--radius-lg); padding: 28px; position: relative; }
+    .feedback-q-card { background: var(--bone-light); border: 1px solid rgba(31,77,58,.1); border-radius: var(--radius-lg); padding: 28px; position: relative; margin-top: 24px; }
     .feedback-q-num { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
     .feedback-q-text { font-size: 16px; font-weight: 600; color: var(--green); line-height: 1.5; margin-bottom: 12px; }
     .feedback-q-sub { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
@@ -250,7 +282,6 @@
       position: relative;
     }
     .profile-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-    /* Placeholder ring when no photo */
     .profile-photo-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
@@ -297,12 +328,11 @@
     .fade-up.delay-3 { transition-delay: .3s; }
     .fade-up.delay-4 { transition-delay: .4s; }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE 900px */
     @media (max-width: 900px) {
       :root { --section-py: 80px; }
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .hero-phones { height: 420px; }
-      .hero-title, .hero-title-sub { font-size: clamp(36px,8vw,56px); }
       .overview-grid { grid-template-columns: 1fr; gap: 48px; }
       .figma-section-header { grid-template-columns: 1fr; gap: 24px; }
       .problem-layout { grid-template-columns: 1fr; }
@@ -322,13 +352,95 @@
       .profile-links { justify-content: center; }
       .profile-eyebrow { justify-content: center; }
       .conclusion-highlights { gap: 20px; }
+      /* Override figma embed fixed heights on tablet */
+      .figma-embed-container iframe { height: auto; min-height: 300px; }
     }
+
+    /* RESPONSIVE 600px */
     @media (max-width: 600px) {
       .phone-2, .phone-3 { display: none; }
       .phone-1 { left: 50%; top: 50%; transform: translate(-50%,-50%) rotate(0deg) !important; }
       .hero-phones { height: 360px; }
       .overview-meta-grid { grid-template-columns: 1fr; }
       .nav-links .nav-cta { display: none; }
+
+      /* Mobile fixes */
+      .hero-meta {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .hero-meta-item {
+        min-width: 100px;
+      }
+      .conclusion-highlights {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .profile-inner {
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+      .nav {
+        padding: 0 16px;
+      }
+      .showcase-row {
+        grid-template-columns: 1fr !important;
+        direction: ltr !important;
+      }
+
+      /* Prevent horizontal scroll */
+      .hero-title, .hero-title-sub {
+        word-break: break-word;
+      }
+      .conclusion-box {
+        padding: 28px 20px;
+      }
+      .reflection-card {
+        padding: 24px 20px;
+      }
+      .problem-card {
+        padding: 24px 20px;
+      }
+      .stat-cell {
+        padding: 28px 20px;
+      }
+      .brand-logo {
+        width: 90px;
+        top: 18px;
+        left: 16px;
+      }
+      .section-sub {
+        font-size: 15px;
+      }
+      .hero-desc {
+        font-size: 15px;
+      }
+      .prototype-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 16px 20px;
+      }
+      .figma-url-text {
+        font-size: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 200px;
+      }
+      /* Tester profile grid on mobile */
+      div[style*="grid-template-columns:1fr 1fr"] {
+        display: block !important;
+      }
     }
   </style>
 </head>
@@ -336,7 +448,6 @@
 
   <!-- BRAND LOGO -->
   <div class="brand-logo">
-    <!-- Ganti dengan: <img src="logo.svg" alt="Djoalan" /> -->
   <img src="img web/download(1)(1).png" alt="Djoalan" />  
   </div>
 
@@ -392,20 +503,16 @@
             <div class="phone-glow"></div>
             <div class="phone phone-3">
               <div class="phone-frame">
-                <!-- ▼ GANTI: <img src="layar-3.png" alt="Layar 3" class="phone-screen" /> -->
                <img src="img web/Html → Body-4(1).png" alt="Layar Utama" class="phone-screen" />
-            
               </div>
             </div>
             <div class="phone phone-1">
               <div class="phone-frame">
-                <!-- ▼ GANTI: <img src="layar-utama.png" alt="Layar Utama" class="phone-screen" /> -->
               <img src="img web/Html → Body-1.png" alt="Layar Utama" class="phone-screen" />
               </div>
             </div>
             <div class="phone phone-2">
               <div class="phone-frame">
-                <!-- ▼ GANTI: <img src="layar-2.png" alt="Layar 2" class="phone-screen" /> -->
                 <img src="img web/Html → Body-2(1).png" alt="Layar Utama" class="phone-screen" />
               </div>
             </div>
@@ -518,7 +625,7 @@
     </div>
   </section>
 
-  <!-- DESIGN THINKING (ganti dari Riset Pengguna) -->
+  <!-- DESIGN THINKING -->
   <section class="section" id="empathize">
     <div class="container">
       <div class="figma-section-header fade-up">
@@ -537,14 +644,16 @@
           <div class="figma-dot r"></div><div class="figma-dot y"></div><div class="figma-dot g"></div>
           <div class="figma-url-bar"><span class="figma-url-text">figma.com/embed — Design Thinking · Tugas Project 1</span></div>
         </div>
-        <iframe style="border:none;" width="100%" height="520" src="https://embed.figma.com/design/aDfY8qkBCrCWu5bbNnUpPb/Tugas-Project-1-Design-Thingking?embed-host=share" allowfullscreen></iframe>
+        <div class="responsive-iframe">
+          <iframe style="border:none;" src="https://embed.figma.com/design/aDfY8qkBCrCWu5bbNnUpPb/Tugas-Project-1-Design-Thingking?embed-host=share" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="section-rule"></div>
 
-  <!-- BRAINSTORMING (sketsa tangan) -->
+  <!-- BRAINSTORMING -->
   <section class="section section-alt" id="brainstorm">
     <div class="container">
       <div class="figma-section-header fade-up">
@@ -563,7 +672,9 @@
           <div class="figma-dot r"></div><div class="figma-dot y"></div><div class="figma-dot g"></div>
           <div class="figma-url-bar"><span class="figma-url-text">figma.com/embed — Crazy 8's & Brainstorming · Sketsa Tangan</span></div>
         </div>
-        <iframe style="border:none;" width="100%" height="520" src="https://embed.figma.com/design/aDfY8qkBCrCWu5bbNnUpPb/Tugas-Project-1-Design-Thingking?node-id=141-1085&embed-host=share" allowfullscreen></iframe>
+        <div class="responsive-iframe">
+          <iframe style="border:none;" src="https://embed.figma.com/design/aDfY8qkBCrCWu5bbNnUpPb/Tugas-Project-1-Design-Thingking?node-id=141-1085&embed-host=share" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -587,7 +698,10 @@
           <div class="figma-dot r"></div><div class="figma-dot y"></div><div class="figma-dot g"></div>
           <div class="figma-url-bar"><span class="figma-url-text">figma.com/embed — Kit UI &amp; Sistem Desain</span></div>
         </div>
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/Cy6wnmfwAeglO6evn8KvNR/Untitled?node-id=42-2&embed-host=share" allowfullscreen></iframe>  </div>
+        <div class="responsive-iframe">
+          <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" src="https://embed.figma.com/design/Cy6wnmfwAeglO6evn8KvNR/Untitled?node-id=42-2&embed-host=share" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -608,9 +722,6 @@
         <div class="showcase-row fade-up delay-1" style="align-items:center;">
   <div style="display:flex; justify-content:center;">
     <div class="showcase-item" style="aspect-ratio:9/16; max-width:280px;">
-      
-      
-  <!-- ▼ GANTI: <img src="foto-splash.png" alt="Halaman Splash" /> -->
             <img src="img web/Html → Body-1.png" alt="Layar Utama" class="phone-screen" />
             </div>
           </div>
@@ -627,9 +738,8 @@
        <div class="showcase-row fade-up delay-1" style="direction:rtl;margin-top:32px;align-items:center;">
   <div style="direction:ltr; display:flex; justify-content:center;">
     <div class="showcase-item" style="aspect-ratio:9/16; max-width:280px;">
-      
-      <!-- ▼ GANTI: <img src="foto-login.png" alt="Login Pembeli & Penjual" /> -->
-          <img src="img web/Html → Body-2(1).png" alt="Layar Utama" class="phone-screen" />  </div>
+          <img src="img web/Html → Body-2(1).png" alt="Layar Utama" class="phone-screen" />
+          </div>
           </div>
           <div class="showcase-caption" style="direction:ltr">
             <div class="step-number">02</div>
@@ -643,16 +753,12 @@
         <!-- Grid 3 screens -->
         <div class="showcase-grid cols-3 fade-up delay-2" style="margin-top:32px">
           <div class="showcase-item">
-            <!-- ▼ GANTI: <img src="foto-filter.png" alt="Jelajahi / Filter" /> -->
-            
             <img src= "img web/ChatGPT Image Jun 7, 2026, 08_23_19 PM.png" alt="Jelajahi Filter" />
           </div>
           <div class="showcase-item">
-            <!-- ▼ GANTI: <img src="foto-checkout.png" alt="Keranjang & Checkout" /> -->
            <img src= "img web/ChatGPT Image Jun 7, 2026, 08_31_12 PM.png" alt="check out" />
           </div>
           <div class="showcase-item">
-            <!-- ▼ GANTI: <img src="foto-profil-penjual.png" alt="Profil Penjual" /> -->
              <img src= "img web/ChatGPT Image Jun 7, 2026, 08_26_01 PM.png" alt="profil penjual" />
           </div>
         </div>
@@ -680,7 +786,7 @@
           <span class="prototype-badge">Prototipe Figma</span>
         </div>
         <div class="prototype-embed-area">
-         <iframe style="border:none;" width="100%" height="620" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/Cy6wnmfwAeglO6evn8KvNR/Untitled?node-id=1-4628%26p=f%26t=MDSPU4tkTYTpwqGH-1%26scaling=scale-down%26content-scaling=fixed%26page-id=0%3A1%26starting-point-node-id=6%3A8%26show-proto-sidebar=1" allowfullscreen></iframe>
+         <iframe style="border:none;" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/Cy6wnmfwAeglO6evn8KvNR/Untitled?node-id=1-4628%26p=f%26t=MDSPU4tkTYTpwqGH-1%26scaling=scale-down%26content-scaling=fixed%26page-id=0%3A1%26starting-point-node-id=6%3A8%26show-proto-sidebar=1" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -904,11 +1010,6 @@
 
         <div class="profile-photo-wrap">
           <div class="profile-photo-frame">
-            <!--
-              ▼ FOTO PROFIL
-              Ganti dengan: <img src="foto-profil.jpg" alt="Naufal Gavin" />
-              Format: JPG / PNG, ukuran minimal 400x400px
-            -->
           <img src="img web/profilgapin.jpeg" alt="Naufal Gavin" />
           </div>
         </div>
@@ -926,7 +1027,6 @@
               GitHub
             </a>
             <a href="mailto:" class="profile-link-btn secondary">
-            
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="#1F4D3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Email Saya
             </a>
